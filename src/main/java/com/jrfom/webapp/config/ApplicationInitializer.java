@@ -1,12 +1,12 @@
 package com.jrfom.webapp.config;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-
 import javax.servlet.Filter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
   private static final Logger log = LoggerFactory.getLogger(ApplicationInitializer.class);
@@ -17,7 +17,9 @@ public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherSe
   @Override
   protected Class<?>[] getRootConfigClasses() {
     log.info("Getting root config classes");
-    return null;
+    return new Class<?>[] {
+      HttpSessionConfig.class
+    };
   }
 
   @Override
